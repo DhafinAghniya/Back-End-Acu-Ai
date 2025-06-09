@@ -9,10 +9,11 @@ const app = express();
 // CORS
 app.use(
   cors({
-    origin: "http://localhost:9000",
+    origin: [process.env.CLIENT_URL || "http://localhost:9000"],
     credentials: true,
   })
 );
+
 
 // Middleware
 app.use(express.json());
@@ -24,7 +25,11 @@ app.use("/api/auth", authRoutes);
 sequelize
   .sync({ force: false })
   .then(() => console.log("Database terhubung"))
-  .catch((err) => console.error("Gagal terhubung ke database:", err));
+  .catch((err) => {
+  console.error("Gagal terhubung ke database:", err);
+  console.log("Cek DB_HOST:", process.env.DB_HOST);
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
