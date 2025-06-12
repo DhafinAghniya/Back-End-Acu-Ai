@@ -4,7 +4,7 @@ const cors = require("cors");
 const sequelize = require("./src/config/db");
 const authRoutes = require("./src/routes/authRoutes");
 const forumRoutes = require("./src/routes/forumRoutes");
-const feedbackRoutes = require("./routes/feedbackRoutes");
+const feedbackRoutes = require("./src/routes/feedbackRoutes");
 
 
 const app = express();
