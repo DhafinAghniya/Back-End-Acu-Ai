@@ -41,8 +41,6 @@ app.listen(PORT, () => {
   console.log(`Server berjalan di port ${PORT}`);
 });
 
-app.use("/api/forum", forumRoutes);
-app.use("/api/feedback", feedbackRoutes);
 
 console.log("DB_HOST:", process.env.DB_HOST);
 console.log("DB_USER:", process.env.DB_USER);
